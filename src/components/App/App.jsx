@@ -1,7 +1,9 @@
 import React from 'react';
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './ContactForm/Filter/Filter';
-import ContactList from './ContactList/ContactList';
+import ContactForm from '../ContactForm/ContactForm';
+import Filter from '../Filter/Filter';
+import ContactList from '../ContactList/ContactList';
+import { GlobalStyle } from '../GlobalStyle';
+import { Container } from './App.styled';
 
 class App extends React.Component {
   state = {
@@ -44,7 +46,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <h2>Phonebook</h2>
         <ContactForm onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
@@ -53,7 +55,8 @@ class App extends React.Component {
           contacts={this.filterContacts()}
           onDeleteContact={this.deleteContact}
         />
-      </div>
+        <GlobalStyle/>
+      </Container>
     );
   }
 }
