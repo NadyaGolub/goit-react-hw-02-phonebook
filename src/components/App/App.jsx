@@ -26,17 +26,16 @@ class App extends React.Component {
   };
 
   handlerChangeFilter = evt => {
-
     const { name, value } = evt.currentTarget;
 
-    this.setState({ [name]: value});
+    this.setState({ [name]: value });
   };
 
   filterContacts = () => {
-    return this.state.contacts.filter(contact => contact.name.toLowerCase().includes(this.state.filter));
-   
+    return this.state.contacts.filter(contact =>
+      contact.name.toLowerCase().includes(this.state.filter)
+    );
   };
-  
 
   deleteContact = contactId => {
     this.setState(prevState => ({
@@ -50,12 +49,12 @@ class App extends React.Component {
         <h2>Phonebook</h2>
         <ContactForm onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
-        <Filter value={this.state.filter} onChange={this.handlerChangeFilter}/>
+        <Filter value={this.state.filter} onChange={this.handlerChangeFilter} />
         <ContactList
           contacts={this.filterContacts()}
           onDeleteContact={this.deleteContact}
         />
-        <GlobalStyle/>
+        <GlobalStyle />
       </Container>
     );
   }
